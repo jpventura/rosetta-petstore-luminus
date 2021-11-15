@@ -80,6 +80,32 @@ pom.xml.next
 ## macOS folder attributes
 .DS_Store
 
+# Quarkus
+
+*.rej
+.apt_generated_tests
+.cache
+.directory
+.envrc
+.graal-install
+.java-version
+.jbang
+.sdkmanrc
+.vscode
+ObjectStore
+derby.log
+docker/distroless/bazel-*
+dumps
+graph-output.dot
+hotspot.log
+hs_err_pid*.log
+local-test
+lsp
+nb-configuration.xml
+nbactions.xml
+quarkus.log
+replay_*.log
+
 # Sublime
 
 ## Cache files for Sublime Text
