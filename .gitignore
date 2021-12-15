@@ -106,6 +106,26 @@ nbactions.xml
 quarkus.log
 replay_*.log
 
+# Spring Boot
+
+*.sw?
+.*.md.html
+.attach_pid*
+.flattened-pom.xml
+.sts4-cache
+MANIFEST.MF
+_site/
+activemq-data
+build.log
+code/
+dump.rdb
+interpolated*.xml
+manifest.yml
+overridedb.*
+secrets.yml
+!/**/src/**/bin
+!/**/src/**/build
+
 # Sublime
 
 ## Cache files for Sublime Text
