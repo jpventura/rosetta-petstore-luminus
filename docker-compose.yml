@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  db:
+    env_file:
+      - .env
+    image: mariadb:latest
+    ports:
+      - '3308:3306'
+    volumes:
+     - ${HOME}/.local/var/lib/mysql:/var/lib/mysql
+  openapi:
+    build:
+      context:
+        .
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - '${PORT}:${PORT:-3000}'
