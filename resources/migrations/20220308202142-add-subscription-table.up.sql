@@ -1,4 +1,4 @@
-CREATE TABLE subscriptions
+CREATE TABLE IF NOT EXISTS subscriptions
 (
     id         UUID PRIMARY KEY,
     user_id    UUID,
