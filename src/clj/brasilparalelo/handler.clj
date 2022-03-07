@@ -18,14 +18,10 @@
   :start
   (ring/ring-handler
 
-
-
-
     (ring/router
       [["/" {:get
              {:handler (constantly {:status 301 :headers {"Location" "/docs/index.html"}}) }}]
        (service-routes)])
-
 
     (ring/routes
       ;; (ring/create-resource-handler {:path "/"})

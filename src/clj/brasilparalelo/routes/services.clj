@@ -2,6 +2,8 @@
   (:require
     [brasilparalelo.auth.routes :as auth]
     [brasilparalelo.media.routes :as media]
+    [brasilparalelo.subscriptions.routes :as subscriptions]
+    [brasilparalelo.users.routes :as users]
     [brasilparalelo.middleware.formats :as formats]
     [reitit.coercion.spec :as spec-coercion]
     [reitit.ring.coercion :as coercion]
@@ -44,8 +46,17 @@
 
    ["/status" {:get (constantly (ok {:message "pong"}))}]
 
+   ["" (auth/routes)]
+
    ["/media"
     {:swagger {:security {:apiAuth []} :tags ["media"]}}
     (media/routes)]
 
-   ["" (auth/routes)]])
+   ["/subscriptions"
+    {:swagger {:security {:apiAuth []} :tags ["subscriptions"]}}
+    (subscriptions/routes)]
+
+  ["/users"
+   {:swagger {:security {:apiAuth []}}}
+   (users/routes)]
+   ])

@@ -7,16 +7,16 @@
     [ring.middleware.defaults :refer [site-defaults wrap-defaults]]
     [buddy.auth.middleware :refer [wrap-authentication]]))
 
-(defn wrap-auth [handler]
-  (-> handler
-      (wrap-authentication auth/backend)))
+  (defn wrap-auth [handler]
+    (-> handler
+        (wrap-authentication auth/backend)))
 
-(defn wrap-base [handler]
-  (-> ((:middleware defaults) handler)
-      wrap-auth
-      wrap-flash
-      (wrap-session {:cookie-attrs {:http-only true}})
-      (wrap-defaults
-        (-> site-defaults
-            (assoc-in [:security :anti-forgery] false)
-            (dissoc :session)))))
+  (defn wrap-base [handler]
+    (-> ((:middleware defaults) handler)
+        wrap-auth
+        wrap-flash
+        (wrap-session {:cookie-attrs {:http-only true}})
+        (wrap-defaults
+          (-> site-defaults
+              (assoc-in [:security :anti-forgery] false)
+              (dissoc :session)))))

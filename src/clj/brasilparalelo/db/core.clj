@@ -4,7 +4,11 @@
     [next.jdbc.result-set]
     [conman.core :as conman]
     [mount.core :refer [defstate]]
+    [clojure.java.io :as io]
+    [clojure.string :as string]
     [brasilparalelo.config :refer [env]]))
+
+(defonce RESOURCE (:luminus-resources env "/home/ventura/internal_git/brasil-paralelo/resources"))
 
 (defstate ^:dynamic *db*
           :start (conman/connect! {:jdbc-url (env :database-url)})
@@ -37,3 +41,14 @@
 (defn sign-in-with-password
   [{username :username password :password}]
   (get-user {:username username :password password}))
+
+(defn tsv
+  [{filename :filename dname :dirname}]
+
+  (let [dirname (or dname (string/join "/" [RESOURCE "db"]))
+        pathname (string/join "/" [dirname filename])]
+
+  (with-open [rd (io/reader (io/file pathname))]
+    (->> (line-seq rd)
+         (map #(.split ^String % "\t"))
+         (mapv seq)))))
