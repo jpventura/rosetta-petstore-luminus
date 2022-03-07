@@ -5,6 +5,17 @@
     [clj-time.core :as time]
     [clj-time.format :as format]))
 
+(defn to-local-datetime
+  [dt]
+  (let [year (.getYear dt)
+        month (.getMonthValue dt)
+        day (.getDayOfMonth dt)
+        hour (.getHour dt)
+        minutes (.getMinute dt)
+        seconds (.getSecond dt)
+        ]
+    (time/date-time year month day hour minutes seconds)))
+
 (defn midnight [dt]
   (let [year (.getYear dt)
         month (.getMonthValue dt)
@@ -12,4 +23,4 @@
     (time/date-time year month day)))
 
 (defn tomorrow [dt]
-  (time/plus dt (time/days 1)))
+  (.toLocalDateTime (time/plus dt (time/days 1))))

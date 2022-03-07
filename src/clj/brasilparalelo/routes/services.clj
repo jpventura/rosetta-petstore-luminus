@@ -52,9 +52,10 @@
     {:swagger {:security {:apiAuth []} :tags ["media"]}}
     (media/routes)]
 
-   ["/subscriptions"
-    {:swagger {:security {:apiAuth []} :tags ["subscriptions"]}}
-    (subscriptions/routes)]
+   ;; FIXME: Create RBAC for admin user
+   ;; ["/subscriptions"
+   ;; {:swagger {:security {:apiAuth []} :tags ["subscriptions"]}}
+   ;; (subscriptions/routes)]
 
   ["/users"
    {:swagger {:security {:apiAuth []}}}
