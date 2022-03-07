@@ -1,4 +1,4 @@
-CREATE TABLE users
+CREATE TABLE IF NOT EXISTS users
 (
     id UUID PRIMARY KEY,
     first_name VARCHAR(32) NOT NULL,
@@ -9,6 +9,7 @@ CREATE TABLE users
     updated_at TIMESTAMP   NOT NULL,
     active     BOOLEAN     NOT NULL,
     password   VARCHAR(64) NOT NULL,
-    token      VARCHAR(32)
-);
+    token      VARCHAR(32),
 
+    CONSTRAINT unique_user UNIQUE (id, email)
+);
