@@ -1,18 +1,16 @@
 FROM ubuntu:22.04
 
-RUN mkdir -p /opt/brasil-paralelo
+ARG HOST_USER=${HOST_USER}
 
-COPY ./deploy/scripts /opt/brasil-paralelo/scripts
-
-RUN /opt/brasil-paralelo/scripts/deb-bootstrap.sh
-
-COPY project.clj /opt/brasil-paralelo/
-COPY ./*.edn /opt/brasil-paralelo/
-COPY target/uberjar/brasilparalelo.jar /opt/brasil-paralelo/app.jar
+ADD ./ /opt/brasil-paralelo
 
 WORKDIR /opt/brasil-paralelo
-# RUN /opt/brasil-paralelo/scripts/bootstrap.sh
+
+RUN deploy/scripts/deb-bootstrap.sh
+RUN deploy/scripts/bootstrap.sh
+
+USER ${HOST_USER}
+
+ENTRYPOINT [ "/usr/bin/lein" ]
 
 EXPOSE ${PORT:-3000}
-
-CMD ["java", "-jar", "/opt/brasil-paralelo/app.jar"]
