@@ -50,7 +50,7 @@
                          :path   {:user_id str}}
             :responses  {200 {:body [Subscription]}}
             :handler    subscriptions/find
-            :tags       ["subscriptions", "users"]
+            :tags       ["subscriptions"]
             }
      :post {
             :summary    "Create user subscription"
@@ -60,7 +60,7 @@
                          :body   {:type str}}
             :responses  {201 {:body [Subscription]}}
             :handler    subscriptions/create-one
-            :tags       ["subscriptions", "users"]
+            :tags       ["subscriptions"]
             }
 
      }
@@ -74,7 +74,7 @@
                          :path   {:user_id str :subscription_id str}}
             :responses  {200 {:body Subscription}}
             :handler    subscriptions/find-one
-            :tags       ["subscriptions", "users"]
+            :tags       ["subscriptions"]
             }
      :patch  {
             :summary    "Patch user subscription"
@@ -84,7 +84,7 @@
                          :path   {:user_id str :subscription_id str}}
             :responses  {200 {:body Subscription}}
             :handler    subscriptions/patch-one
-            :tags       ["subscriptions", "users"]
+            :tags       ["subscriptions"]
             }
      }
     ]
