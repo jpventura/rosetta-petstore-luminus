@@ -12,4 +12,4 @@
     (time/date-time year month day)))
 
 (defn tomorrow [dt]
-  (time/plus dt (time/days 1)))
+  (.toLocalDateTime (time/plus dt (time/days 1))))

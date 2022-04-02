@@ -46,6 +46,8 @@
       }]
 
     (let [token (jwt/encrypt claims SECRET {:alg :a256kw :enc :a128gcm})]
+      (println claims)
+      (println (jwt/sign claims SECRET {:alg :a256kw :enc :a128gcm}))
       {:token token})
     ))
 
@@ -73,6 +75,9 @@
       }]
 
     (let [token (jwt/encrypt claims SECRET {:alg :a256kw :enc :a128gcm})]
+
+      (println claims)
+      (println (jwt/sign claims SECRET {:alg :hs512}))
       {:token token})
     ))
 
