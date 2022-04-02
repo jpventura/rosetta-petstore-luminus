@@ -100,34 +100,34 @@ http http://0.0.0.0:3000/api/media/ \
 
 ```JSON
 [{
-"id": "78e34217-8be2-46f0-b4b8-1f654fcdd591",
-"name": "CORINGA - Podcast Cultura Paralela #1",
-"released_at": "2020-03-29T20:02:34",
-"type": "podcast"
-},
-{
-"id": "abeff106-6b4e-4f02-9b8b-2f4844af2f49",
-"name": "Brasil - A Ãšltima Cruzada",
-"released_at": "2021-07-08T16:37:11",
-"type": "series"
-},
-{
-"id": "95f80b8c-fae2-479a-a7d4-3191178018de",
-"name": "Qual o limite do Respeito?",
-"released_at": "2020-03-29T20:02:34",
-"type": "debate"
-},
-{
-"id": "801486de-892d-4969-933d-37e12d62065d",
-"name": "INTERESTELAR - Podcast Cultura Paralela #2",
-"released_at": "2020-03-29T20:02:34",
-"type": "podcast"
-},
-{
-"id": "ef1195f8-dd0f-429c-a26e-66f07687dbbc",
-"name": "Congresso Brasil Paralelo - Rodrigo gurgel",
-"released_at": "2021-01-24T11:45:57",
-"type": "interview"
+      "id": "78e34217-8be2-46f0-b4b8-1f654fcdd591",
+      "name": "CORINGA - Podcast Cultura Paralela #1",
+      "released_at": "2020-03-29T20:02:34",
+      "type": "podcast"
+  },
+  {
+      "id": "abeff106-6b4e-4f02-9b8b-2f4844af2f49",
+      "name": "Brasil - A Ãšltima Cruzada",
+      "released_at": "2021-07-08T16:37:11",
+      "type": "series"
+  },
+  {
+    "id": "95f80b8c-fae2-479a-a7d4-3191178018de",
+    "name": "Qual o limite do Respeito?",
+    "released_at": "2020-03-29T20:02:34",
+    "type": "debate"
+  },
+  {
+    "id": "801486de-892d-4969-933d-37e12d62065d",
+    "name": "INTERESTELAR - Podcast Cultura Paralela #2",
+    "released_at": "2020-03-29T20:02:34",
+    "type": "podcast"
+  },
+  {
+    "id": "ef1195f8-dd0f-429c-a26e-66f07687dbbc",
+    "name": "Congresso Brasil Paralelo - Rodrigo gurgel",
+    "released_at": "2021-01-24T11:45:57",
+    "type": "interview"
 }]
 ```
 
