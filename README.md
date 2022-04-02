@@ -48,7 +48,59 @@ Just run `docker-compose` locally:
     docker-compose up
 ```
 
-a prepopulated database will be available with the following users:
+## Usage
+
+First authenticate one of the avaiable users to generate a JWT token:
+
+```bash
+http http://0.0.0.0:3000/api/authorize \
+    email=sconnor@aol.com \
+    password=Iru0Dahng3Eepiel
+```
+
+You may access the API through:
+
+  - [HTTPie CLI](https://httpie.io/docs/cli)
+  - [Postman App](https://www.postman.com/)
+  - [Swagger 2.x local host](http://0.0.0.0:3000/docs/index.html)
+
+The response is a [JWT](https://jwt.io/) token  
+
+```json
+{
+  "token": "eyJhbGciOiJBMjU2S1ciLCJlbm...QGXQzlPV_C9eQXHFORRVMA"
+}
+```
+
+containing the following encrypted information
+
+```JSON
+{
+  "header": {
+    "alg": "A256KW",
+    "enc": "A128GCM"
+  },
+  "payload": {
+    "admin": false,                                  // Admin privileges
+    "exp": 1648852056,                               // Expiration timestamp
+    "iat": 1648848456,                               // Issued at timestamp
+    "type": "patriot",                               // (basic, premium, patriot, patron)
+    "sub": "26bd2f1f-98a5-4c65-9baf-347fa43f5194"    // User ID
+  }
+}
+```
+
+The token contain all information required to authentication and RBAC authorization.
+So users will obtain different outputs for the same endpoint:
+
+```bash
+http http://0.0.0.0:3000/api/media/ \
+    Authorization:'Token eyJhbGciOiJBMjU2S1ciLCJlbm...QGXQzlPV_C9eQXHFORRVMA'
+```
+
+
+### 
+A prepopulated database will be available with the following users:
 
 | **name**            | **email**            | **password**     |
 |---------------------|----------------------|------------------|
@@ -56,3 +108,6 @@ a prepopulated database will be available with the following users:
 | Sarah Connor        | sconnor@aol.com      | Iru0Dahng3Eepiel |
 | John Connor         | jconnor@yahoo.com    | Eez3xahfaero9eih |
 | Kyle Reese          | reese@skynet.com     | Zahjo6joh4Gah8bu |
+
+
+First obtain a valid JWT token
